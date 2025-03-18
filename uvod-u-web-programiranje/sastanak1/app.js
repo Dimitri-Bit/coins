@@ -8,22 +8,14 @@ const studenti = [
 
 function calcAvgGrade() {
   for (let i = 0; i < studenti.length; i++) {
-    let sGrade = 0;
-    for (let j = 0; j < studenti[i].ocjene.length; j++) {
-      sGrade = sGrade + studenti[i].ocjene[j];
-    }
-
+    let sGrade = avg(studenti[i].ocjene);
     console.log("Ime: " + studenti[i].ime + " prosjek: " + sGrade);
   }
 }
 
 function getAboveAverageStudents() {
-  let avgGrade = calcAvgGrade();
   for (let i = 0; i < studenti.length; i++) {
-    let sGrade = 0;
-    for (let j = 0; j < studenti[i].ocjene.length; j++) {
-      sGrade = sGrade + studenti[i].ocjene[j];
-    }
+    let sGrade = avg(studenti[i].ocjene);
 
     if (sGrade >= 8.5) {
       console.log(studenti[i]);
@@ -36,10 +28,7 @@ function getBestStudent() {
   let bestGrade = 0;
 
   for (let i = 0; i < studenti.length; i++) {
-    let sGrade = 0;
-    for (let j = 0; j < studenti[i].ocjene.length; j++) {
-      sGrade = sGrade + studenti[i].ocjene[j];
-    }
+    let sGrade = avg(studenti[i].ocjene);
 
     if (sGrade > bestGrade) {
       bestStudent = studenti[i];
@@ -86,4 +75,4 @@ function addAvgKey() {
   console.log(studenti);
 }
 
-addAvgKey();
+getBestStudent();
