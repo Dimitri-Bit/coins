@@ -1,6 +1,8 @@
 const apiUrl = "https://jsonblob.com/api/jsonBlob/1351950892655632384/";
 
 const moviesSection = document.querySelector(".movies-section");
+const searchInput = document.querySelector(".search-input");
+const searchForm = document.querySelector(".search-form");
 
 function constructMovieHTML(json) {
   return `
@@ -21,10 +23,24 @@ function constructMovieHTML(json) {
     `;
 }
 
+function cleanMovies() {
+  document.querySelectorAll(".movie").forEach((element) => element.remove());
+}
+
 function displayMovies(json) {
+  cleanMovies();
   json.forEach((element) => {
-    let movie = constructMovieHTML(element);
-    moviesSection.insertAdjacentHTML("beforeend", movie);
+    if (!searchInput.value) {
+      let movie = constructMovieHTML(element);
+      moviesSection.insertAdjacentHTML("beforeend", movie);
+      return;
+    }
+
+    let searchedMovie = searchInput.value;
+    if (searchedMovie.toLowerCase() == element.title.toLowerCase()) {
+      let movie = constructMovieHTML(element);
+      moviesSection.insertAdjacentHTML("beforeend", movie);
+    }
   });
 }
 
@@ -33,5 +49,10 @@ async function getMovies() {
   const json = await response.json();
   displayMovies(json.movies);
 }
+
+searchForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  getMovies();
+});
 
 getMovies();

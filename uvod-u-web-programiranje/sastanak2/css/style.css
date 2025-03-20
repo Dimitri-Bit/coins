@@ -52,6 +52,29 @@
 .search-form input {
   border: none;
   box-shadow: none;
+  padding: 10px 20px 10px 20px;
+  margin: none;
+  border: solid gray 2px;
+}
+
+.search-form input:focus {
+  border: solid blueviolet 2px;
+  outline: none;
+}
+
+.search-form button {
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5%;
+  margin: none;
+  font-size: 16px;
+  background-color: blueviolet;
+  color: white;
+}
+
+.search-form button:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px) {
