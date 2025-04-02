@@ -1,0 +1,76 @@
+:root {
+  --text-color: #e6e6e6;
+  --red: #ff4d4d;
+  --green: #00cc44;
+  --task-color: #333333;
+}
+
+.tasks-container {
+  width: 50vw;
+  margin: 0 auto;
+  margin-top: 20vh;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+  background-color: var(--task-color);
+  padding: 5px 10px;
+}
+
+.delete-button {
+  border: none;
+  background-color: var(--red);
+  color: var(--text-color);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 5%;
+}
+
+.delete-button:focus {
+  outline: none;
+}
+
+.delete-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.add-form input {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+}
+
+.add-button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  background-color: var(--green);
+  color: var(--text-color);
+}
+
+.add-button:focus {
+  outline: none;
+}
+
+.add-button:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 1000px) {
+  .tasks-container {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 20vw;
+  }
+}

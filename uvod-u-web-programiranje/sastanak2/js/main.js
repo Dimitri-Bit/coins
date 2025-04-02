@@ -56,3 +56,5 @@ searchForm.addEventListener("submit", function (e) {
 });
 
 getMovies();
+
+let test = await getMovies();
